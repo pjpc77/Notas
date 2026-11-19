@@ -33,6 +33,17 @@ Depois, reiniciar o serviço:
 systemctl restart claude-rc
 ```
 
+## Religar a conversa "Cação code"
+
+A conversa está na pasta `/homeassistant` do LXC 105. Dentro do LXC (`root@claude`):
+
+```
+cd /homeassistant && claude --resume 94251ee9-e0bc-4c55-af07-f017fdd9b92d
+```
+- Se perguntar "trust this folder": carregar **↓** até **Yes, I trust this folder** e só depois Enter. Enter direto escolhe "No, exit".
+- Já dentro do Claude: `/remote-control` e Enter, e depois **Continue**.
+- Não fechar essa janela com Ctrl+C. Se o terminal fechar, a sessão continua no tmux.
+
 ## Arranque automático
 
 Serviço systemd `/etc/systemd/system/claude-rc.service`: corre `claude remote-control` numa sessão tmux chamada `rc` sempre que o LXC arranca.
